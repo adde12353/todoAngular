@@ -1,0 +1,28 @@
+header {
+    margin-bottom: 20px;
+}
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 5px auto;
+    border-bottom: 1px solid #f2f2f2;
+    
+  }
+  .navbar h1 {
+    color: whitesmoke;
+  }
+  .navbar .links {
+    margin-left: auto;
+  }
+  .navbar a {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+  }
+  .navbar a:hover {
+    color: #00b0b9;
+  }
+

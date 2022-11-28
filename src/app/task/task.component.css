@@ -1,0 +1,27 @@
+.taskCard{
+    display: flex;
+    flex-direction: column;
+    margin: 20% auto; 
+}
+
+.icons{
+    display: flex;
+    gap: 15px
+}
+
+.headerCard{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 5px;
+}
+
+p {
+    margin: 10px 5px;
+}
+
+@media (min-width: 600px) {
+    .taskCard{
+        margin: 10% auto; 
+    }
+    
+}

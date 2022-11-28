@@ -1,0 +1,6 @@
+
+<form #taskForm="ngForm" (ngSubmit)="taskCreate(taskForm.value)" >
+    <input type="text" name="Titel" ngModel placeholder="Titel (Max 12 tecken)" maxlength="12">
+    <textarea cols="30" name="Description" ngModel rows="3.5" placeholder="Description"></textarea>
+    <button>Skapa ett task</button>
+</form>

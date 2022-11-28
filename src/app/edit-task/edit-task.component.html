@@ -1,0 +1,7 @@
+
+
+<form #editForm="ngForm" (ngSubmit)="taskEdit(editForm.value)">
+    <input type="text" name="Titel" [(ngModel)]="taskData.titel" placeholder="Titel">
+    <textarea cols="30" name="Description" [(ngModel)]="taskData.description" rows="3.5" placeholder="Description"></textarea>
+    <button>Spara ändringen</button>
+</form>

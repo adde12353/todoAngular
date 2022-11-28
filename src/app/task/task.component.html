@@ -1,0 +1,13 @@
+
+<div class="taskCard">
+    <div class="headerCard">
+        <div>
+            <h3>{{taskData.titel}}</h3>
+        </div>
+        <div class="icons">
+            <span (click)="taskDone()" class="material-symbols-outlined">check_box</span>
+            <a href="edit/{{taskData.id}}"><span class="material-symbols-outlined">edit</span></a>
+        </div>
+    </div>
+    <p class="taskDesc">{{taskData.description}} </p>
+</div>

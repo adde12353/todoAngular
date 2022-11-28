@@ -1,0 +1,22 @@
+<div *ngFor="let item of tasks" [ngClass]="{'taskCard' : true, 'taskDone' : item.fardig}" >
+    
+    <div><a href="task/{{item.id}}">
+        <h3 >{{item.titel}}</h3>
+        <p class="taskDesc">{{item.description}}</p></a>
+    </div>
+    <div [ngClass] ="item.fardig ? 'doneTaskModular' : 'hide'"><h3>Färdig</h3></div>
+    
+    <div>
+        <span (click)="taskDone(item.id)"  [ngClass]="item.fardig ? 'material-symbols-outlined' : 'hide'" style="color: whitesmoke">undo</span>
+        <span (click)="taskDone(item.id)"  [ngClass]="!item.fardig ? 'material-symbols-outlined' : 'hide'">check_box</span>
+        <a href="edit/{{item.id}}" [ngClass]="{'hide' : item.fardig}" ><span class="material-symbols-outlined">edit</span></a>
+        <span (click)="deleteTask(item.id)" [ngClass]="!item.fardig ? 'material-symbols-outlined' : 'hide'" >delete</span>
+   
+</div>
+   
+</div>
+
+
+
+
+
