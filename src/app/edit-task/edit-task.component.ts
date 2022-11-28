@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute, ParamMap, Router} from '@angular/router';
+
 
 
 @Component({
@@ -26,11 +27,12 @@ export class EditTaskComponent {
     })
   
     localStorage.setItem("taskList", JSON.stringify(updatedTask))
-
+    this.router.navigate(["/"])
   }
   
   constructor(
     private route: ActivatedRoute,
+    private router: Router
   ) {
 
   

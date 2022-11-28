@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class CreateTaskComponent {
   maximumLetter: boolean
   
-
   test(e:any) {
     console.log(e)
   }
@@ -24,7 +23,6 @@ export class CreateTaskComponent {
     }    
     const upDatedTaskList:object = data
 
-   
   //Startvärde 0 kolla så den inte pushar tomt
    if(localStorage.getItem('taskList') == null) {
     localStorage.setItem("taskList", "[]")
@@ -32,11 +30,14 @@ export class CreateTaskComponent {
    let taskList = JSON.parse(localStorage.getItem("taskList") || '{}');
     taskList.push(upDatedTaskList)
     localStorage.setItem("taskList", JSON.stringify(taskList))
+    
+    this.router.navigate(["/"])
   }
+
+
   
   
   constructor(private router : Router) {
-
     
  this.maximumLetter = false
   }

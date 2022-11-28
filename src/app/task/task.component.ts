@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute, ParamMap, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-task',
@@ -9,7 +10,7 @@ import { ActivatedRoute, ParamMap} from '@angular/router';
 export class TaskComponent{
   taskData:any;
   id:any;
-  tasks:any;
+  tasks:Array<{id: number, titel: string, description: string, fardig: boolean}>; 
 
 taskDone(){
   this.tasks.map((items:any) => {
@@ -21,10 +22,12 @@ taskDone(){
   })
   console.log(this.tasks)
   localStorage.setItem("taskList", JSON.stringify(this.tasks))
+  this.router.navigate(["/"])
 }
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router
   ) {
       this.tasks = JSON.parse(localStorage.getItem("taskList") || '{}')
   }

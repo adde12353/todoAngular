@@ -8,9 +8,6 @@ import { Component } from '@angular/core';
 })
 export class TasksComponent {
 
-  
- 
-
   tasks:Array<{id: number, titel: string, description: string, fardig: boolean}>; 
 
 deleteTask(item:number) {
