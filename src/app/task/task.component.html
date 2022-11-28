@@ -1,13 +1,16 @@
 
-<div class="taskCard">
+<div [ngClass]="{'taskCard' : true, 'taskDone' : taskData.fardig}">
     <div class="headerCard">
         <div>
             <h3>{{taskData.titel}}</h3>
         </div>
         <div class="icons">
-            <span (click)="taskDone()" class="material-symbols-outlined">check_box</span>
-            <a href="edit/{{taskData.id}}"><span class="material-symbols-outlined">edit</span></a>
+            <span (click)="taskDone()"  [ngClass]="taskData.fardig ? 'material-symbols-outlined' : 'hide'" style="color: whitesmoke">undo</span>
+            <span (click)="taskDone()" [ngClass]="!taskData.fardig ? 'material-symbols-outlined' : 'hide'">check_box</span>
+            <a href="edit/{{taskData.id}}" [ngClass]="!taskData.fardig ? 'material-symbols-outlined' : 'hide'"><span class="material-symbols-outlined">edit</span></a>
         </div>
     </div>
+    <div [ngClass] ="taskData.fardig ? 'doneTaskModular' : 'hide'"><h3>Färdig</h3></div>
+
     <p class="taskDesc">{{taskData.description}} </p>
 </div>

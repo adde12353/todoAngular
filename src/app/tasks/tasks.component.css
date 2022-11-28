@@ -1,7 +1,4 @@
-
-
 .taskCard {
-    display: flex;
     align-items: center;
 }
 
@@ -12,7 +9,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-
 
   .doneTaskModular{ 
     position: absolute;
@@ -26,12 +22,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-
   }
 
   @media (min-width: 600px) {
  .taskDesc{
     width: 400px;
- } 
-  
-}
+ }}

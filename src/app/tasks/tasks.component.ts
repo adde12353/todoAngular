@@ -31,8 +31,6 @@ taskDone(id:number){
 
 
 constructor() {
- 
 this.tasks = JSON.parse(localStorage.getItem("taskList") || '{}')
-
 }
 }

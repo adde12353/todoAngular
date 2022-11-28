@@ -10,7 +10,8 @@ import { ActivatedRoute, ParamMap, Router} from '@angular/router';
   styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent {
-  taskData:any;
+  taskData:any; 
+  tasks:Array<{id: number, titel: string, description: string, fardig: boolean}>; 
   id:any;
 
   taskEdit(item:any){
@@ -34,15 +35,14 @@ export class EditTaskComponent {
     private route: ActivatedRoute,
     private router: Router
   ) {
-
+    this.tasks = JSON.parse(localStorage.getItem("taskList") || '{}');
+    this.id = this.route.snapshot.paramMap.get('id')
+    const filter = this.tasks.filter((task:any) => task.id == this.id)
+    this.taskData = filter[0]  
   
   }
   ngOnInit() {
-    let tasks = JSON.parse(localStorage.getItem("taskList") || '{}');
-    this.id = this.route.snapshot.paramMap.get('id')
-    console.log(this.id, tasks)
-    const filter = tasks.filter((task:any) => task.id == this.id)
-    this.taskData = filter[0]   
+   
   }
 
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import { ActivatedRoute, ParamMap, Router} from '@angular/router';
+import { Component} from '@angular/core';
+import { ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { ActivatedRoute, ParamMap, Router} from '@angular/router';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent{
-  taskData:any;
+  taskData:any
   id:any;
   tasks:Array<{id: number, titel: string, description: string, fardig: boolean}>; 
 
@@ -22,24 +22,17 @@ taskDone(){
   })
   console.log(this.tasks)
   localStorage.setItem("taskList", JSON.stringify(this.tasks))
-  this.router.navigate(["/"])
 }
 
   constructor(
     private route: ActivatedRoute,
     private router: Router
   ) {
-      this.tasks = JSON.parse(localStorage.getItem("taskList") || '{}')
+    this.tasks = JSON.parse(localStorage.getItem("taskList") || '{}')
+    this.id = this.route.snapshot.paramMap.get('id') 
+    const filter = this.tasks.filter((task:any) => task.id == this.id)
+    this.taskData = filter[0]
   }
   ngOnInit() {
-    let tasks = JSON.parse(localStorage.getItem("taskList") || '{}');
-
-    this.id = this.route.snapshot.paramMap.get('id')
-    console.log(this.id, tasks)
-    const filter = tasks.filter((task:any) => task.id == this.id)
-    this.taskData = filter[0]
-    console.log(this.taskData)
     }
-  
-  
 }
